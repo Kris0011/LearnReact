@@ -24,3 +24,7 @@ export default function Navbar(props) {
   )
 }
 Navbar.propTypes ={ item1: PropTypes.string , item2: PropTypes.string , item3: PropTypes.string , item4: PropTypes.string  }
+
+Navbar.defaultProps ={
+    item1: "Home"
+}
