@@ -32,12 +32,16 @@ body {
   position: sticky;
   top: 0;
   z-index: 1;
+
+  
+
   
 }
 nav{
   border-bottom: 4px solid white;
   display: flex;
   justify-content: space-between;
+
 
 }
 .navbar ul {
@@ -61,6 +65,7 @@ nav{
   margin: 1px 1px;
   padding: 10px 10px;
   transition: all 0.3s ease-in-out 0.1s;
+
 
 }
 
