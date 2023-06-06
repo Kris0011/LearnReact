@@ -10,22 +10,27 @@ function App() {
     if(mode === 'dark'){
       setMode('light');
       setTextMode('Enable Dark Mode');
+      document.body.style.backgroundColor = 'white';
+      document.body.style.color = 'black';
+      
       
     }
     else{
       setMode('dark');
       setTextMode('Disable Dark Mode');
+      document.body.style.backgroundColor = '#1c1c1c';
+      document.body.style.color = 'white';
 
 
     }
   }
   return (
-   <body data-bs-theme={mode}>
+   <>
     <Navbar item2="Help" mode={mode}  toggleMode={toggleMode} textMode={textMode}/>
     <div className="container" >
     <Form title="Enter the text you want to modify" mode={mode}/>
     </div>
-   </body>
+   </>
   );
 }
 
