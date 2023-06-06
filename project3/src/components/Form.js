@@ -10,25 +10,32 @@ export default function Form(props) {
     const toUpper = () => {
         let change = text.toUpperCase();
         setText(change);
-
+        props.showAlert("Text changed to Uppercase","warning");
+        
     }
     const toLower = () => {
         let change = text.toLowerCase();
         setText(change);
-
+        props.showAlert("Text changed to Lowercase","warning");
+        
     }
     const cleartext = () => {
         setText("");
+        props.showAlert("Text Cleared","danger");
     }
     const handleCopy = () => {
         var newText = text;
         // newText.select();
         navigator.clipboard.writeText(newText.value);
+        props.showAlert("Copied Clipboard","success");
+
     }
 
     const handleExtraSpace = () => {
         let newText = text.split(/[ ]+/);
         setText(newText.join(" "));
+        props.showAlert("Extra space has been removed.","success");
+
     }
     const getCharacterCountPerWord = () => {
         const words = text.split(" ");
@@ -44,13 +51,7 @@ export default function Form(props) {
         );
         const average = totalCharacters / characterCounts.length;
         return isNaN(average) ? 0 : average.toFixed(2);
-      };
-
-
-    // const wordCount = (str)=>{
-    //     let set = new Set(str.split(' '));
-    //     return set.size;
-    // }
+      }; 
 
     const [text, setText] = useState("");
     return (
