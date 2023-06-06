@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 
 export default function Form(props) {
-    
+
     const changeText = (event) => {
         setText(event.target.value);
     }
@@ -17,19 +17,35 @@ export default function Form(props) {
         setText(change);
 
     }
-    const cleartext = () =>{
+    const cleartext = () => {
         setText("");
     }
-    const handleCopy = () =>{
-        var newText = text ;
+    const handleCopy = () => {
+        var newText = text;
         // newText.select();
         navigator.clipboard.writeText(newText.value);
     }
 
-    const handleExtraSpace = () =>{
+    const handleExtraSpace = () => {
         let newText = text.split(/[ ]+/);
         setText(newText.join(" "));
     }
+    const getCharacterCountPerWord = () => {
+        const words = text.split(" ");
+        const characterCounts = words.map((word) => word.length);
+        return characterCounts;
+    };
+
+    const getAverageCharacterCount = () => {
+        const characterCounts = getCharacterCountPerWord();
+        const totalCharacters = characterCounts.reduce(
+          (sum, count) => sum + count,
+          0
+        );
+        const average = totalCharacters / characterCounts.length;
+        return isNaN(average) ? 0 : average.toFixed(2);
+      };
+
 
     // const wordCount = (str)=>{
     //     let set = new Set(str.split(' '));
@@ -49,17 +65,18 @@ export default function Form(props) {
             <button className="btn btn-primary mx-2" onClick={cleartext}>Clear</button>
             <button className="btn btn-primary mx-2" onClick={handleExtraSpace}>Remove Extra Space</button>
             <div className="my-5">
-                <div>
+                <div className="container">
+                    <h4>Summary</h4>
                     <p>Words {text.split(" ").length} </p>
                     <p>Charactors {text.length}</p>
                     <p>Paragraphs {text.replace(/\n$/gm, '').split(/\n/).length}</p>
-                    <p>Sentences {text.split (". ").length - 1} </p>
+                    <p>Sentences {text.split(". ").length - 1} </p>
+                    <p>Characters per word: {getAverageCharacterCount()}</p>
                     {/* <p>Unique Words {wordCount({text})}</p> */}
-                </div>
-                <div>
                     <h4>Preview</h4>
                     <p>{text}</p>
                 </div>
+                    
             </div>
 
         </div>
