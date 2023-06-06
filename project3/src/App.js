@@ -20,8 +20,6 @@ function App() {
       setTextMode('Disable Dark Mode');
       document.body.style.backgroundColor = '#1c1c1c';
       document.body.style.color = 'white';
-
-
     }
   }
   return (

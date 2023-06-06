@@ -31,7 +31,11 @@ export default function Form(props) {
         setText(newText.join(" "));
     }
 
-    
+    // const wordCount = (str)=>{
+    //     let set = new Set(str.split(' '));
+    //     return set.size;
+    // }
+
     const [text, setText] = useState("");
     return (
         <div className="container" data-bs-theme={props.mode}>
@@ -46,7 +50,11 @@ export default function Form(props) {
             <button className="btn btn-primary mx-2" onClick={handleExtraSpace}>Remove Extra Space</button>
             <div className="my-5">
                 <div>
-                    <p>Words {text.split(" ").length} and Charactors {text.length}</p>
+                    <p>Words {text.split(" ").length} </p>
+                    <p>Charactors {text.length}</p>
+                    <p>Paragraphs {text.replace(/\n$/gm, '').split(/\n/).length}</p>
+                    <p>Sentences {text.split (". ").length - 1} </p>
+                    {/* <p>Unique Words {wordCount({text})}</p> */}
                 </div>
                 <div>
                     <h4>Preview</h4>
