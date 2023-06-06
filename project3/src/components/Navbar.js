@@ -1,41 +1,13 @@
-import React , {useState} from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 export default function Navbar(props) {
-  const changeStyle = () =>{
-    if(myStyle.color === 'black'){
-      setStyle({
-        color : 'white',
-        backgroundColor : 'black'
-      })
-      setBtnText('Light');
-      setBtnClass('btn btn-light');
-
-    }
-    else{
-      setStyle({
-        color : 'black',
-        backgroundColor : 'white'
-      })
-      setBtnText('Dark');
-      setBtnClass('btn btn-dark');
-
-
-    }
-    
-  }
-  const [myStyle , setStyle] = useState({
-    color : 'black',
-    backgroundColor : 'white'
-  })
-
-  const [btnText, setBtnText] = useState('Dark');
-  const [btnClass, setBtnClass] = useState('btn btn-dark');
+  
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary" >
-        <div className="container-fluid" style={myStyle}>
-          <a className="navbar-brand" href="/" style={myStyle}>
+      <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme={props.mode}>
+        <div className="container-fluid">
+          <a className="navbar-brand" href="/">
             TextConvo
           </a>
           <button
@@ -46,26 +18,28 @@ export default function Navbar(props) {
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
-            
+
           >
             <span className="navbar-toggler-icon" ></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/" style={myStyle}>
+                <a className="nav-link active" aria-current="page" href="/" >
                   {props.item1}
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/" style={myStyle}>
-                {props.item2}
+                <a className="nav-link" href="/">
+                  {props.item2}
                 </a>
               </li>
             </ul>
           </div>
-          {/* <button type="button" class="btn btn-light">Light</button> */}
-          <button type="button" className={btnClass} onClick={changeStyle}>{btnText}</button>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" onClick={props.toggleMode}/>
+            <label class="form-check-label" for="flexSwitchCheckChecked">{props.textMode}</label>
+          </div>
         </div>
       </nav>
     </div>

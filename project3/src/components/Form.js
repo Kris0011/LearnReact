@@ -22,7 +22,6 @@ export default function Form(props) {
     }
     const handleCopy = () =>{
         var newText = text ;
-        console.log(newText);
         // newText.select();
         navigator.clipboard.writeText(newText.value);
     }
@@ -35,7 +34,7 @@ export default function Form(props) {
     
     const [text, setText] = useState("");
     return (
-        <>
+        <div className="container" data-bs-theme={props.mode}>
             <div className="my-4">
                 <label htmlFor="exampleFormControlTextarea1" className="form-label">{props.title}</label>
                 <textarea className="form-control" id="exampleFormControlTextarea1" rows="8" onChange={changeText} value={text}></textarea>
@@ -55,7 +54,7 @@ export default function Form(props) {
                 </div>
             </div>
 
-        </>
+        </div>
 
     );
 }
