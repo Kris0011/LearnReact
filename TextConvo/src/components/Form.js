@@ -23,13 +23,7 @@ export default function Form(props) {
         setText("");
         props.showAlert("Text Cleared","danger");
     }
-    const handleCopy = () => {
-        var newText = text;
-        // newText.select();
-        navigator.clipboard.writeText(newText.value);
-        props.showAlert("Copied Clipboard","success");
-
-    }
+  
 
     const handleExtraSpace = () => {
         let newText = text.split(/[ ]+/);
@@ -52,6 +46,13 @@ export default function Form(props) {
         const average = totalCharacters / characterCounts.length;
         return isNaN(average) ? 0 : average.toFixed(2);
       }; 
+      const handleCopy = () => {
+        // text.select();
+        // navigator.clipboard.writeText(text.value);
+        // document.execCommand("copy");
+        props.showAlert("Copied Clipboard","success");
+
+    }
 
     const [text, setText] = useState("");
     return (
