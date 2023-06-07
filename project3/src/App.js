@@ -26,8 +26,6 @@ function App() {
       setTextMode('Enable Dark Mode');
       document.body.style.backgroundColor = 'white';
       document.body.style.color = 'black';
-      
-      
     }
     else{
       setMode('dark');
