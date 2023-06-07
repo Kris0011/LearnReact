@@ -8,6 +8,15 @@ function App() {
   const [mode,setMode] = useState('light');
   const [alert,setAlert] = useState(null);
 
+  setInterval (()=>{
+    document.title = 'TextConvo App';
+  },4000)
+  
+  setInterval (()=>{
+    document.title = 'By Kris Patel';
+  },8000)
+
+
   const showAlert = (msg , type) =>{
     setAlert(
       {
