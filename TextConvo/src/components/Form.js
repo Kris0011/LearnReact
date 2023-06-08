@@ -74,7 +74,9 @@ export default function Form(props) {
             <button disabled={text.length===0} className="btn btn-success mx-2 my-1" onClick={handleReset}>Reset All the Chnages</button>
             <div className=" container my-5 ">
                     <h4>Summary</h4>
-                    <p>Words {text.split(/\s+/).filter((element) => { return element.length !== 0; }).length} Charactors {text.length} Paragraphs {text.replace(/\n$/gm, '').split(/\n/).length} Sentences {text.split(". ").length} Characters per word: {getAverageCharacterCount()}</p>   {/* filter will not count word while doing space */}
+                    <p>Words {text.split(/\s+/).filter((element) => { return element.length !== 0; }).length} Charactors {text.length} </p
+                    ><p>Paragraphs {text.replace(/\n$/gm, '').split(/\n/).length} Sentences {text.split(". ").length} </p>
+                    <p> Characters per word: {getAverageCharacterCount()}</p>   {/* filter will not count word while doing space */}
                     <h4 >Preview</h4>
                     <span>{text}</span>
             </div>
