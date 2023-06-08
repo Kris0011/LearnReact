@@ -3,9 +3,13 @@ import PropTypes from "prop-types";
 
 
 export default function Form(props) {
-
+    
     const changeText = (event) => {
         setText(event.target.value);
+        setText2(event.target.value);
+    }
+    const handleReset = () => {
+        setText(text2);
     }
     const toUpper = () => {
         let change = text.toUpperCase();
@@ -55,6 +59,7 @@ export default function Form(props) {
     }
 
     const [text, setText] = useState("");
+    const [text2, setText2] = useState("");
     return (
         <div data-bs-theme={props.mode}>
             <div className="my-4">
@@ -64,11 +69,12 @@ export default function Form(props) {
             <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleCopy}>Copy</button>
             <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={toUpper}>Uppercase</button>
             <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={toLower}>Lowercase</button>
-            <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={cleartext}>Clear</button>
-            <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleExtraSpace}>Remove Extra Space</button>
+            <button disabled={text.length===0} className="btn btn-danger mx-2 my-1" onClick={cleartext}>Clear</button>
+            <button disabled={text.length===0} className="btn btn-danger mx-2 my-1" onClick={handleExtraSpace}>Remove Extra Space</button>
+            <button disabled={text.length===0} className="btn btn-success mx-2 my-1" onClick={handleReset}>Reset All the Chnages</button>
             <div className=" container my-5 ">
                     <h4>Summary</h4>
-                    <p>Words {text.split(" ").filter((element) => { return element.length !== 0; }).length} Charactors {text.length} Paragraphs {text.replace(/\n$/gm, '').split(/\n/).length} Sentences {text.split(". ").length} Characters per word: {getAverageCharacterCount()}</p>   {/* filter will not count word while doing space */}
+                    <p>Words {text.split(/\s+/).filter((element) => { return element.length !== 0; }).length} Charactors {text.length} Paragraphs {text.replace(/\n$/gm, '').split(/\n/).length} Sentences {text.split(". ").length} Characters per word: {getAverageCharacterCount()}</p>   {/* filter will not count word while doing space */}
                     <h4 >Preview</h4>
                     <span>{text}</span>
             </div>
