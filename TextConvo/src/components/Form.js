@@ -58,8 +58,8 @@ export default function Form(props) {
     return (
         <div className="container" data-bs-theme={props.mode}>
             <div className="my-4">
-                <label htmlFor="exampleFormControlTextarea1" className="form-label">{props.title}</label>
-                <textarea className="form-control" id="exampleFormControlTextarea1" rows="8" onChange={changeText} value={text}></textarea>
+                {/* <label htmlFor="exampleFormControlTextarea1" className="form-label">{props.title}</label> */}
+                <textarea className="form-control" id="exampleFormControlTextarea1" rows="8" onChange={changeText} value={text} placeholder={props.title}></textarea>
             </div>
             <button className="btn btn-primary mx-2" onClick={handleCopy}>Copy</button>
             <button className="btn btn-primary mx-2" onClick={toUpper}>Uppercase</button>

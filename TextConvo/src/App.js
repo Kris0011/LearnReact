@@ -49,15 +49,15 @@ function App() {
   return (
     <>
       <Router>
-      <Navbar item2="About Us" mode={mode} toggleMode={toggleMode} textMode={textMode} />
-      <Alert alert={alert} />
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<Form title="Enter the text you want to modify" mode={mode} showAlert={showAlert} />} />
-          <Route path="/about" element={<AboutUS />} />
-        </Routes>
-      </div>
-    </Router>
+        <Navbar item2="About Us" mode={mode} toggleMode={toggleMode} textMode={textMode} />
+        <Alert alert={alert} />
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<Form title="Enter the text here" mode={mode} showAlert={showAlert} />} />
+            <Route path="/about" element={<AboutUS />} />
+          </Routes>
+        </div>
+      </Router>
 
 
     </>
