@@ -1,0 +1,39 @@
+{
+  "status": "ok",
+  "totalResults": 3,
+  "articles": [
+    {
+      "source": { "id": "polygon", "name": "Polygon" },
+      "author": "Austen Goslin",
+      "title": "Zack Snyder’s Netflix scifi epic Rebel Moon is a new way to make movies",
+      "description": "Rebel Moon, a massive sci-fi epic directed by Zack Snyder and coming to Netflix, will be a two-part movie with two different versions of each part.",
+      "url": "https://www.polygon.com/23751262/rebel-moon-zack-snyder-netflix-release-date",
+      "urlToImage": "https://cdn.vox-cdn.com/thumbor/18lk4juIvi5SlOBRJJi60jmRDD0=/0x3:1422x748/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/24522661/AAAAQX2m8_oPPxCSGF4gJGKj6j8uKh7zHO2W746UC5fvjR3KUJxV_AnfEgecQmjmQ9KQ1qYm4wn_ET5UPGEojGqLOEHw9ixOfK0Wi5f35ZdQVdOK2jaa_YXPciZv9diMsVr_mfPLZmhVwcVAJowXxDVvJidHKFs.jpg",
+      "publishedAt": "2023-06-07T13:45:00Z",
+      "content": "Original sci-fi universes are few and far between in Hollywood, so its no surprise that Zack Snyders latest blockbuster Rebel Moon is getting a lot of attention. Netflixs deep-space epic is set to be… [+2363 chars]"
+    },
+    {
+      "source": {
+        "id": "entertainment-weekly",
+        "name": "Entertainment Weekly"
+      },
+      "author": "EW Staff",
+      "title": "Your guide to the 2023 TV premiere dates",
+      "description": "We'll tell you how to watch all the new and returning series, plus streaming movies.",
+      "url": "https://ew.com/tv/2023-tv-premiere-dates/",
+      "urlToImage": "https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&rect=4%2C0%2C2000%2C998&poi=%5B980%2C598%5D&w=2000&h=1000&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2023%2F04%2F21%2FArtboard-4TV-PREMIERES-2000.jpg",
+      "publishedAt": "2022-11-03T20:30:00Z",
+      "content": "With warmer weather comes a new batch of shows, and we're here to help you kick your summer off right with a TV-watching schedule that will make you excited to stay indoors.\r\nMay offers up a wide arr… [+23776 chars]"
+    },
+    {
+      "source": { "id": "ign", "name": "IGN" },
+      "author": "Collier Jennings",
+      "title": "Best Action Movies on Netflix Right Now (September 2022) - IGN",
+      "description": "These are the best action movies on Netflix right now -- blockbusters, fight films, animated adventures and shootouts galore.",
+      "url": "https://www.ign.com/articles/best-action-movies-on-netflix-right-now",
+      "urlToImage": "https://assets-prd.ignimgs.com/2022/07/28/rrr-1659047262112.jpg?width=1280",
+      "publishedAt": "2022-09-01T18:03:14Z",
+      "content": "There is nothing like a good action movie on Netflix. The perfectly choreographed fight scenes that let you feel every punch and kick on screen; the shootouts that see bullets and bodies hitting the … [+11394 chars]"
+    }
+  ]
+}
