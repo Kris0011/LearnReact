@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import NewsItem from './NewsItem'
+import Loading from './Loading';
 
 export class News extends Component {
     articles = [
@@ -18,28 +19,36 @@ export class News extends Component {
 
     async componentDidMount() {
         let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=d45e688ec7464a6f85a6256625d57cc4&page=${this.state.page}&pageSize=${this.state.pageSize}`;
+        this.setState({loading : true});
         let data = await fetch(url);
         let parsedData = await data.json();
-        this.setState({ articles: parsedData.articles, totalResults: parsedData.totalResults });
+        this.setState();
+
+        this.setState({ articles: parsedData.articles, totalResults: parsedData.totalResults ,loading : false});
+
 
     }
 
     handleNext = async ()  =>{
         let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=d45e688ec7464a6f85a6256625d57cc4&page=${this.state.page+1}&pageSize=${this.state.pageSize}`;
+        this.setState({loading : true});
         let data = await fetch(url);
         let parsedData = await data.json();
-        this.setState({ articles: parsedData.articles, totalResults: parsedData.totalResults });
+        this.setState({ articles: parsedData.articles, totalResults: parsedData.totalResults ,loading : false});
         this.setState({ page: (this.state.page)+1 });
+        window.scrollTo({ top: 0, behavior: "smooth" });
         
     }
     
     handlePrev = async () =>{
 
         let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=d45e688ec7464a6f85a6256625d57cc4&page=${this.state.page-1}&pageSize=${this.state.pageSize}`;
+        this.setState({loading : true});
         let data = await fetch(url);
         let parsedData = await data.json();
-        this.setState({ articles: parsedData.articles, totalResults: parsedData.totalResults });
+        this.setState({ articles: parsedData.articles, totalResults: parsedData.totalResults ,loading : false});
         this.setState({ page: (this.state.page)-1 });
+        window.scrollTo({ top: 0, behavior: "smooth" });
 
     }
 
@@ -48,6 +57,8 @@ export class News extends Component {
         return (
             <div>
                 <div className="container my-5">
+                {this.state.loading && <Loading/>}
+                <h1 align="center" style={{color: 'white'}}>Top News of India </h1>
                     <div className="card-deck row">
                         {this.state.articles.map((ele) => {
                             return <div className="col-md-4">
