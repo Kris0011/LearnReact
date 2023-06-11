@@ -1,7 +1,7 @@
 import React, { useEffect , useState } from 'react'
 import NewsItem from './NewsItem'
 import Loading from './Loading'
-import InfiniteScroll from "react-infinite-scroll-component";
+import InfiniteScroll from "react-infinite-scroll-component"
 
 // import PropTypes from 'prop-types'
 
@@ -20,14 +20,17 @@ const News=(props)=>{
     // document.title = `News88 - ${props.category} news`;
 
     const updateNews = async ()=> {
-
+        props.setProgress(10);
         let url = `https://newsapi.org/v2/top-headlines?country=in&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${pageSize}`;
         setLoading(true);
+        props.setProgress(30);
         let data = await fetch(url);
         let parsedData = await data.json();
+        props.setProgress(60);
         setArticles(parsedData.articles);
         setTotalResults(parsedData.totalResults);
         setLoading(false);
+        props.setProgress(100);
     }
 
     useEffect(()=>{
@@ -48,15 +51,13 @@ const News=(props)=>{
         return (
 
             <div>
-                <h1 align="center" style={{ color: 'white' }}>Top {props.category} headlines</h1>
-                {/* {loading && <Loading />} */}
+                <h1 align="center" className="my-4"  style={{ color: 'white' }}>Top {props.category} headlines</h1>
                 <InfiniteScroll
                     dataLength={articles.length}
                     next={fetchMoreData}
-                    hasMore={articles.length !== totalResults}
-                    loader={<Loading />}
+                    hasMore={articles.length <= totalResults}
+                    loader={<Loading/>}
                 >
-
                     <div className="container my-5">
                         <div className="card-deck row">
                             {articles.map((ele, i) => {
@@ -67,6 +68,7 @@ const News=(props)=>{
                         </div>
                     </div>
                 </InfiniteScroll>
+
             </div>
         )
 }
