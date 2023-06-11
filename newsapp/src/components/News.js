@@ -17,7 +17,6 @@ const News=(props)=>{
     const [page,setPage] = useState(1);
     const [pageSize,setPageSize] = useState(6);
 
-    // document.title = `News88 - ${props.category} news`;
 
     const updateNews = async ()=> {
         props.setProgress(10);
@@ -35,11 +34,13 @@ const News=(props)=>{
 
     useEffect(()=>{
         updateNews();
+        document.title = `News88 - ${props.category} news`;
+
     },[])
 
     const fetchMoreData = async () => {
-        setPage(page+1);
-        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${props.category}&apiKey=${props.apiKey}&page=${page+1}&pageSize=${pageSize}`;
+        setPage(page+1);    
         setLoading(true);
         let data = await fetch(url);
         let parsedData = await data.json();
@@ -55,7 +56,7 @@ const News=(props)=>{
                 <InfiniteScroll
                     dataLength={articles.length}
                     next={fetchMoreData}
-                    hasMore={articles.length <= totalResults}
+                    hasMore={articles.length !== totalResults}
                     loader={<Loading/>}
                 >
                     <div className="container my-5">

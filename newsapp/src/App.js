@@ -5,12 +5,11 @@ import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import News from './components/News';
 import LoadingBar from 'react-top-loading-bar'
-import { StickyContainer, Sticky } from 'react-sticky'
 
 
 export default function App() {
-  // const apiKey = "d45e688ec7464a6f85a6256625d57cc4";
-  const apiKey = "c5a750e288b94d978f96092aefd4d3b3";
+  const apiKey = "d45e688ec7464a6f85a6256625d57cc4";
+  // const apiKey = "c5a750e288b94d978f96092aefd4d3b3";
 
 
   const [progress,setProgress] =useState(0);
@@ -21,6 +20,7 @@ export default function App() {
         <Sticky><Navbar/></Sticky>
       </StickyContainer> */}
         <Navbar/>
+        <div className="container box">
         <LoadingBar
                 color='#f11946'
                 progress={progress}
@@ -35,6 +35,8 @@ export default function App() {
           <Route exact strict path="/sports"  element={<News apiKey={apiKey} key="sports" category="sports" setProgress={setProgress}/>}/>
            <Route exact strict path="/technology"  element={<News apiKey={apiKey} key="technology" category="technology" setProgress={setProgress}/>}/>
            </Routes>
+        </div>
+        
 
         
       </Router>
