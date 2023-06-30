@@ -49,6 +49,10 @@ function App() {
   };
   
   const fetchData = async () => {
+    if (name.trim() === '') {
+      alert('Please enter a name');
+      return;
+    }
     let url_1 = `https://api.agify.io/?name=${name}`;
     let url_2 = `https://api.genderize.io/?name=${name}`;
     let url_3 = `https://api.nationalize.io/?name=${name}`;
