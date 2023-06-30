@@ -49,6 +49,7 @@ function App() {
   };
   
   const fetchData = async () => {
+    
     if (name.trim() === '') {
       alert('Please enter a name');
       return;
@@ -94,7 +95,7 @@ function App() {
       {loading && <Loading/>}
       <div className="container"> 
         {data && <p>Age : {age}</p>}
-        {data && <p>Gender : {gender.gender} (chances {gender.probability * 100}%) </p>}
+        {data && <p>Gender : {gender.gender?gender.gender:'Not able to guess'} (chances {gender.probability * 100}%) </p>}
 
         {data && (
           <div>
