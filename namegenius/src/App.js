@@ -23,14 +23,7 @@ function App() {
     setData(false);
   }
 
-  const toggleData = () => {
-    if (data === false) {
-      setData(true);
-    } else {
-      setData(false);
-    }
-  }
-
+  
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
@@ -54,7 +47,7 @@ function App() {
     const country = countries.find(country => country.code === countryCode);
     return country ? country.name : countryCode;
   };
-
+  
   const fetchData = async () => {
     let url_1 = `https://api.agify.io/?name=${name}`;
     let url_2 = `https://api.genderize.io/?name=${name}`;
@@ -74,8 +67,16 @@ function App() {
     setNation(parsedData_3.country);
     console.log(parsedData_3.country);
     setLoading(false);
-    toggleData();
+    showData();
   };
+
+  const clearData = () =>{
+    setData(false);
+    setName('');
+  }
+  const showData = () => {
+      setData(true);
+  }
 
   return (
     <div className="container my-4">
@@ -84,7 +85,7 @@ function App() {
     <div className="container"> 
       <input  type="text" className="form-control " placeholder="Enter the name to find the age , gender and country " value={name} onChange={toggleName}></input>
       <button  type="button" className="btn btn-primary mx-2 my-3 " onClick={fetchData}>Go</button>
-      <button  type="button" className="btn btn-danger mx-2 my-3 " onClick={toggleData}>Clear</button>
+      <button  type="button" className="btn btn-danger mx-2 my-3 " onClick={clearData}>Clear</button>
       </div>
       {loading && <Loading/>}
       <div className="container"> 
